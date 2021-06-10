@@ -4,6 +4,10 @@
     <div class="panel-body">
         {{-- エラー表示 --}}
         @include('common.errors')
+        {{-- セッションから情報を取得 --}}
+        名前:{{Auth::user()->name}} 
+
+
         {{-- 登録 --}}
         <form action="{{url('books')}}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
@@ -51,7 +55,10 @@
                 </table>
             </div>
         </div>
-    @endif
 
+    @endif
 </div>
+    <div class="row">
+            {{ $books->links() }}
+    </div>
 @endsection
